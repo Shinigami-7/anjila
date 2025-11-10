@@ -1,0 +1,214 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #0b0f14;
+  color: #e0e0e0;
+  scroll-behavior: smooth;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #10151c;
+  border-bottom: 1px solid #1f2a36;
+}
+
+header h1 {
+  color: #00c2a8;
+
+}
+
+nav a {
+  margin-left: 20px;
+  color: #cfcfcf;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #00c2a8;
+}
+
+/* Sections */
+section {
+  padding: 50px 40px;
+  text-align: center;
+}
+
+
+/* SHOP */
+.shop-section{
+  background-color: #a6f3f5;
+  background-image:linear-gradient(180deg, rgba(80, 80, 80, 0.2) 0%, rgba(16, 21, 28, 0.8) 100%);
+}
+.shop-section h1 {
+  margin-bottom: 20px;
+  color: #00c2a8;
+  font-size: 45px;
+  
+}
+#searchInput {
+  width: 60%;
+  padding: 10px;
+  margin-bottom: 25px;
+  border-radius: 6px;
+  border: none;
+  background-color: #1c242d;
+  color: #e0e0e0;
+}
+.medicine-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+  justify-items: center;
+}
+.medicine-card {
+  background-color: #151b24;
+  padding: 30px;
+  border-radius: 16px;
+  transition: transform 0.3s;
+  width: 370px;
+  min-height: 330px;
+  box-sizing: border-box;
+}
+.medicine-card:hover {
+  transform: translateY(-5px);
+}
+.price {
+  color: #b3ffec;
+  font-weight: bold;
+}
+button {
+  background-color: #00c2a8;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+button:hover {
+  background-color: #00e0c0;
+}
+
+/* About Us */
+.about-section{
+  background-color:#1f2a36;
+}
+.about-content {
+  margin: 0 auto;
+  text-align: left; /* Aligns text left for better readability */
+}
+.about-content h3 {
+  color: var(--accent);
+  margin-top: 25px;
+}
+.about-content p {
+  margin-bottom: 10px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* PRESCRIPTION */
+.prescription-section {
+  background-color: #10151c;
+}
+#prescriptionInput {
+  margin-top: 15px;
+}
+#previewContainer img {
+  margin-top: 20px;
+  width: 200px;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+/* CONSULT */
+.consult-section {
+  background-color: #0f141a;
+}
+.doctor-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.doctor-card {
+  background-color: #151b24;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+}
+footer {
+  text-align: center;
+  padding: 15px;
+  border-top: 1px solid #1f2a36;
+  color: #7f8a94;
+}
+/* --- HOME SECTION STYLES --- */
+.hero-section {
+  padding: 150px 40px 310px 50px; 
+  background-color: #0b0f14; 
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(16, 21, 28, 0.8) 100%),url('https://www.universityofcalifornia.edu/sites/default/files/generic-drugs-istock.jpg');
+  text-align: left;
+}
+
+.hero-section h2 {
+  font-size: 55px;
+  color: #00c2a8; 
+  margin-bottom: 40px;
+}
+
+.hero-section p {
+  font-size: 1.2em;
+  margin-bottom: 25px;
+  color: #cfcfcf;
+}
+
+.hero-section button {
+  font-size: 1em;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+
+/* LOGIN SECTION */
+.hero-login-container {
+ background-color: #10151c;
+ width:335px;
+ height:355px;
+ position:absolute;
+ top:150px;
+ left:600px;
+ border-radius: 10px;
+ padding:25px;
+ display: none;
+}
+.hero-login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 16px;
+}
+
+.hero-login-container button {
+  width:100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00c2a8;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+}
