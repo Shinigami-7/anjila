@@ -24,12 +24,16 @@ header h1 {
   color: #00c2a8;
 
 }
-
+.userlogo{
+  height: 25px;
+  position: absolute;
+  padding-bottom: 5px;
+}
 nav a {
   margin-left: 20px;
   color: #cfcfcf;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.2s;
 }
 
 nav a:hover {
@@ -147,8 +151,13 @@ button:hover {
   width: 250px;
 }
 footer {
+  margin-right: 10px;
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
   text-align: center;
   padding: 15px;
+  line-height: 25px;
   border-top: 1px solid #1f2a36;
   color: #7f8a94;
 }
