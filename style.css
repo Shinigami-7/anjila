@@ -100,6 +100,7 @@ button:hover {
 /* About Us */
 .about-section{
   background-color:#1f2a36;
+
 }
 .about-content {
   margin: 0 auto;
@@ -152,6 +153,7 @@ footer {
   color: #7f8a94;
 }
 /* --- HOME SECTION STYLES --- */
+
 .hero-section {
   padding: 150px 40px 310px 50px; 
   background-color: #0b0f14; 
@@ -212,3 +214,180 @@ footer {
   cursor: pointer;
   margin-top: 30px;
 }
+/*OUR SERVICES*/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+#services {
+  padding: 60px 20px;
+  background-color: #b6e1e4;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(16, 21, 28, 0.8) 100%)
+  
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5em;
+  color: #87e4d9;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #d1fbfd;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  color: #2f855a;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #080808;
+}
+
+/*CONTACT US*/
+
+.contact-section {
+  padding: 60px 20px;
+  background-color: #b6e1e4;
+  font-family: Arial, sans-serif;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 2.5em;
+  color: #2f855a;
+  margin-bottom: 40px;
+}
+
+.contact-form,
+.contact-info {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.contact-subtitle {
+  color: #2f855a;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+.contact-form button {
+  margin-top: 20px;
+  background-color: #2f855a;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #276749;
+  transform: scale(1.05);
+}
+
+.contact-info p {
+  color: #444;
+  margin-bottom: 10px;
+}
+.cart-section {
+  background-color: #151b24;
+  padding: 40px;
+  border-radius: 10px;
+  margin-top: 30px;
+  color: #e0e0e0;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  background: #1c242d;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+.cart-item button {
+  background-color: #ff6666;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.cart-item button:hover {
+  background-color: #ff4444;
+}
+
+#placeOrderBtn {
+  margin-top: 20px;
+  background-color: #00c2a8;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#placeOrderBtn:hover {
+  background-color: #00e0c0;
+  transform: scale(1.05);
+}
+

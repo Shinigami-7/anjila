@@ -9,6 +9,76 @@ const medicines = [
   { name: "Pain Relief Balm", price: 80, available: true, image: "painReliefBalm.jpeg" }
 ];
 
+// === CART SYSTEM ===
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(medicineName) {
+  // Check if user is logged in
+  const loggedInUser = localStorage.getItem("loggedInUser");
+  if (!loggedInUser) {
+    const loginContainer = document.querySelector(".hero-login-container");
+    if (loginContainer) {
+      loginContainer.style.display = "block";
+      document.getElementById("loginBox").style.display = "block";
+      document.getElementById("registerBox").style.display = "none";
+    }
+    alert("⚠️ Please login first to add items to your cart.");
+    return;
+  }
+
+  // If logged in, proceed with adding to cart
+  const med = medicines.find(m => m.name === medicineName);
+  if (!med || !med.available) return;
+
+  cart.push(med);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(`${med.name} added to cart!`);
+
+  displayCart();
+}
+
+function displayCart() {
+  const cartContainer = document.getElementById("cartContainer");
+  if (!cartContainer) return;
+
+  if (cart.length === 0) {
+    cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+    return;
+  }
+
+  cartContainer.innerHTML = cart.map((item, index) => `
+    <div class="cart-item">
+      <span>${item.name} - Rs. ${item.price}</span>
+      <button onclick="removeFromCart(${index})">Remove</button>
+    </div>
+  `).join("");
+
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  cartContainer.innerHTML += `<p><strong>Total: Rs. ${total}</strong></p>`;
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  displayCart();
+}
+function placeOrder() {
+  if (cart.length === 0) {
+    alert("Your cart is empty. Please add items before placing an order.");
+    return;
+  }
+
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  alert(`✅ Order placed successfully!\nTotal Amount: Rs. ${total}\nThank you for shopping with MeroPharma.`);
+
+  // Clear cart after order
+  cart = [];
+  localStorage.removeItem("cart");
+  displayCart();
+}
+
+
+
 // --- MEDICINE DISPLAY LOGIC ---
 function displayMedicines(list) {
   const medicineList = document.getElementById("medicineList");
@@ -20,7 +90,7 @@ function displayMedicines(list) {
       <h3>${med.name}</h3>
       <p>Price: <span class="price">Rs. ${med.price}</span></p>
       <p>Status: ${med.available ? '<span style="color:#00ff99">Available</span>' : '<span style="color:#ff6666">Out of Stock</span>'}</p>
-      <button ${!med.available ? "disabled" : ""}>Add to Cart</button>
+<button onclick="addToCart('${med.name}')" ${!med.available ? "disabled" : ""}>Add to Cart</button>
     </div>
   `).join("");
 }
@@ -62,11 +132,27 @@ function registerUser(e) {
 
 function loginUser(e) {
   e.preventDefault();
-  const u = username.value.trim(), p = password.value, s = loginStatus;
+ const u = username.value.trim();
+  const p = password.value;
   const stored = localStorage.getItem('user_' + u);
-  s.textContent = (stored && stored === p)
-    ? '✅ Login Successful! Welcome, ' + u
-    : '❌ Invalid credentials or user not registered.';
+
+  if (stored && stored === p) {
+    loginStatus.textContent = '✅ Login Successful! Welcome, ' + u;
+    loginStatus.style.color = "#00c2a8";
+
+    // Save login state
+    localStorage.setItem("loggedInUser", u);
+
+    // Hide login box
+    document.querySelector('.hero-login-container').style.display = "none";
+
+    // Optionally show shop/cart
+    document.getElementById("shop").style.display = "block";
+    document.getElementById("cart").style.display = "block";
+  } else {
+    loginStatus.textContent = '❌ Invalid credentials or user not registered.';
+    loginStatus.style.color = "#ff6666";
+  }
 }
 
 // --- PRESCRIPTION UPLOAD ---
@@ -105,6 +191,9 @@ function bookConsultation(doctor) {
 
 // Wait for the entire page to load before running the main logic
 document.addEventListener('DOMContentLoaded', () => {
+  displayMedicines(medicines);
+  displayCart();
+});
     
     // 1. **THE FIX**: Initialize the medicine list
     displayMedicines(medicines);
@@ -136,4 +225,3 @@ document.addEventListener('DOMContentLoaded', () => {
             loginBox.style.display = 'block';
         });
     }
-});
