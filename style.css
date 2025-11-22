@@ -109,6 +109,7 @@ button:hover {
 .about-content {
   margin: 0 auto;
   text-align: left; /* Aligns text left for better readability */
+  font-size: 24px;
 }
 .about-content h3 {
   color: var(--accent);
@@ -117,7 +118,10 @@ button:hover {
 .about-content p {
   margin-bottom: 10px;
   line-height: 1.7;
-  font-size: 1.05rem;
+  
+}
+.about-content ul{
+  line-height: 1.7;
 }
 
 /* PRESCRIPTION */
